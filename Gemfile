@@ -28,8 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Simple form gem 
+gem 'simple_form', '~> 5.1'
 # Bulma for rails
 gem 'bulma-rails', '~> 0.9.1'
+# gravatar
+gem 'gravatar_image_tag', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
