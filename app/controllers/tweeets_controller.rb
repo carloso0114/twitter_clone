@@ -3,8 +3,10 @@ class TweeetsController < ApplicationController
 
   # GET /tweeets or /tweeets.json
   def index
-    @tweeets = Tweeet.all
+    @tweeets = Tweeet.all.order("created_at DESC")
+    @tweeet = Tweeet.new
   end
+  
 
   # GET /tweeets/1 or /tweeets/1.json
   def show
@@ -25,7 +27,7 @@ class TweeetsController < ApplicationController
 
     respond_to do |format|
       if @tweeet.save
-        format.html { redirect_to @tweeet, notice: "Tweeet was successfully created." }
+        format.html { redirect_to root_path, notice: "Tweeet was successfully created." }
         format.json { render :show, status: :created, location: @tweeet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,10 +39,7 @@ class TweeetsController < ApplicationController
   # PATCH/PUT /tweeets/1 or /tweeets/1.json
   def update
     respond_to do |format|
-      if @tweeet.update(tweeet_params)
-        format.html { redirect_to @tweeet, notice: "Tweeet was successfully updated." }
-        format.json { render :show, status: :ok, location: @tweeet }
-      else
+      if @twind
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @tweeet.errors, status: :unprocessable_entity }
       end
